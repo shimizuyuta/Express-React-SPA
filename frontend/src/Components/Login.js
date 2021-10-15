@@ -1,6 +1,18 @@
-import React from 'react'
+import React ,{useEffect}from 'react'
+import { useHistory } from 'react-router'
+import { useStateContext } from '../context/StateProvider'
 
 const Login = () => {
+  const history = useHistory();
+  const {isLogin,setIsLogin} = useStateContext()
+
+  useEffect(() => {
+    if(isLogin){
+      history.push('/')
+    }
+  
+  })
+
   return (
     <div>
       <h1>Express-React</h1>
