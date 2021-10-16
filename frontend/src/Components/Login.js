@@ -15,16 +15,16 @@ const Login = () => {
 
   const handleSubmit = (e) =>{
     e.preventDefault()
-
+    console.log(nameRef.current.value)
     console.log('submit',e.target)
-    console.log('submit',e.currentTarget.value)
-    console.log('submit',e.target.value)
-    console.log('submit',e.target.username)
     console.log(nameRef.current.value)
     console.log('value',value)
-    const { email, password } = e.target.elements;
-    console.log('email',email)
-    axios.post('http://localhost:3001/api/v1/login')
+    const username = nameRef.current.value
+    const password = passRef.current.value
+    setValue({...value,username:username,password:password})
+    console.log('value______',value)
+
+    axios.post('http://localhost:3001/api/v1/login',value)
     .then((e)=>{
       console.log(e.data,'aaasa')
       // setValue({
