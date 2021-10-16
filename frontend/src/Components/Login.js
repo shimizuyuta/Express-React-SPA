@@ -26,7 +26,7 @@ const Login = () => {
     console.log('email',email)
     axios.post('http://localhost:3001/api/v1/login')
     .then((e)=>{
-      console.log(e.data,'aaaa')
+      console.log(e.data,'aaasa')
       // setValue({
       //   username:'',
       //   value:''
