@@ -1,18 +1,20 @@
 const express = require('express')
 const app = express()
-const port = process.env.PORT || 3001
+const port = process.env.EXPRESS_PORT || 3001
 const cors = require('cors')
 const expressSession = require('express-session');
-
 const router = require('./router')
-
+const initConnectionPool = require('./api/db/dbconnection');
 
 
 app.disable('x-powered-by')
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-
+initConnectionPool()
+.then((data)=>{
+  console.log('mongo_data_connect_______________');
+})
 
 const sessionStore = new expressSession.MemoryStore();
 const session = expressSession({
